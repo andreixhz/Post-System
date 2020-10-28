@@ -1,5 +1,4 @@
 :root {
-    font-size: 60%;
     --color-background: #FFF;
 }
 
@@ -16,6 +15,7 @@ html, body, #root{
 
 body{
     background: var(--color-background);
+    font-family: Roboto;
 }
 
 #root{
