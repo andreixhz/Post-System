@@ -6,7 +6,7 @@ import Login from './pages/Login';
 function Routes() {
     return (
         <BrowserRouter className>
-            <div className="center">
+            <div className="center fd">
                 <div className="container">
                     <Route path="/" component={Login}/>
                 </div>

@@ -37,8 +37,20 @@ button {
     max-width: 1000px;
 }
 
+.fd{
+    width: 100vw;
+    height: 100vh;
+}
+
 .center{
     display: flex;
     justify-content: center;
 }
+
+.center-a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
