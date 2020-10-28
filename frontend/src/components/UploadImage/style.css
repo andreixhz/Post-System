@@ -1,0 +1,25 @@
+.post_image{
+    margin-top: 20px;
+    width: 450px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+    justify-content: space-between;
+}
+
+.post_image input{
+    display: none;
+}
+
+.select_image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:90px;
+    height: 90px;
+}
+
+.description{
+    width:300px
+}
