@@ -1,6 +1,7 @@
 import React , { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import api from '../../api';
+import Post from '../../components/Post';
 import UploadImage from '../../components/UploadImage';
 import './style.css';
 
@@ -29,6 +30,7 @@ function Home() {
         <div className="center home">
             <h1>H1, {user.username}</h1>
             <UploadImage />
+            <Post/>
         </div>
     );
 }
