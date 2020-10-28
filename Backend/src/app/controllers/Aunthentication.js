@@ -32,7 +32,7 @@ router.post('/register', async (req, res) => {
 router.post('/authenticate', async (req,res)=>{
 
     const {username, password} = req.body;
-    const user = await User.findOne({where: {username, password}});
+    const user = await User.findOne({where: {username}});
 
     if(!user)
         return res.status(400).send({error: 'User not found'});
