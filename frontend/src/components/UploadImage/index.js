@@ -48,8 +48,8 @@ function UploadImage() {
             setSendButton(false);
             setDecription("");
             setCurrentUploadImage(null);
-            setFile(null)
-            setSneakBar({open:true, msg: 'Image has been sended'})
+            setFile(null);
+            setSneakBar({open:true, msg: 'Image has been sended'});
         })
     
     }
