@@ -1,9 +1,14 @@
 const multer = require('multer');
+const { v4: uuidv4 } = require('uuid');
 
-const upload = multer({
-  limits: {
-    fileSize: 4 * 1024 * 1024,
-  }
-});
+const upload = multer({ 
+  storage: multer.diskStorage({
+    destination: 'uploads/',
+    filename(req, file, callback) {
+      const fileName = `${uuidv4()}-${file.originalname}`;
 
+      return callback(null, fileName);
+    },
+  }),
+})
 module.exports = upload
