@@ -25,7 +25,7 @@ function Login() {
                     />
                     <div>
                         <Button variant="outlined">Confirm</Button>
-                        <Link to="/register">Don't have account?</Link>
+                        <Link type="submit" to="/register">Don't have account?</Link>
                     </div>
                 </form>
             </div>
