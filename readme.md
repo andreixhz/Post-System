@@ -8,12 +8,14 @@ simple application for sending images to the server using http request.
 * Backend ✔️
 * Frontend ⚙️
 
-# How to run
-
 ## Backend 
+
+# How to run
 
 ```
 use "cd Backend" -> "yarn" -> "node ."
 ```
 open in web the url http://localhost:3333
+
+
 
