@@ -29,7 +29,7 @@ Post.init({
 }, {
     freezeTableName: true,
     sequelize: conn,
-    modelName: "Post"
+    modelName: "post"
 })
 
 User.hasMany(Post);
