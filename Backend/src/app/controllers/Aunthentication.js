@@ -23,7 +23,7 @@ router.post('/register', async (req, res) => {
 
         user.password = undefined;
 
-        return res.send({ user , token: generateToken({id: user.id})});
+        return res.send({ user , token: generateToken({id: user.uuid})});
     } catch (err){
         return res.status(400).send({error: 'Registration failed'});
     }
@@ -42,7 +42,7 @@ router.post('/authenticate', async (req,res)=>{
     
     user.password = undefined;
 
-    res.send({user, token: generateToken({id: user.id})});
+    res.send({user, token: generateToken({id: user.uuid})});
 
 });
 
