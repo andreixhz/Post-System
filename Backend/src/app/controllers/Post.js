@@ -16,6 +16,22 @@ router.post('/', uploadMiddleware.single('image'), async (req, res) => {
 
 });
 
+router.get('/', async(req, res) => {
 
+    const { page = 1 } = req.query;
+    const count = await Post.count();
+
+    if(count === undefined || count === 0) return res.status(200).send({status:200,code:'no post founded'});
+
+    const posts = await Post.findAll({
+        offset: (page - 1) * 10,
+        limit: 10
+    });
+
+    res.header('X-Total-Count', count);
+    console.log(count)
+    return res.status(200).send({status:200,code:'posts_getted', data:posts});
+
+});
 
 module.exports = app => app.use('/post', router);
