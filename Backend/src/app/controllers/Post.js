@@ -10,8 +10,7 @@ router.use(authMiddleware);
 router.post('/', uploadMiddleware.single('image'), async (req, res) => {
 
     const { filename, size } = req.file;
-
-    const post = await Post.create({uuid: req.userId, image: filename, description: req.description});
+    const post = await Post.create({uuid: req.userId, image: filename, description: req.body.description});
 
     return res.status(200).json({ image: `/uploads/${filename}`, size, post})
 
