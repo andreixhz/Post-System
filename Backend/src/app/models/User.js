@@ -10,7 +10,7 @@ User.init({
         defaultValue: () => uuidv4(),
         primaryKey: true
     },
-    username:{
+    author:{
         type: DataTypes.STRING(20),
         allowNull: false
     },

@@ -14,6 +14,10 @@ Post.init({
         type: DataTypes.UUIDV4,
         allowNull: false
     },
+    author:{
+        type: DataTypes.STRING(255),
+        allowNull: true
+    },
     image:{
         type: DataTypes.STRING(255),
         allowNull: false
@@ -29,7 +33,7 @@ Post.init({
 })
 
 User.hasMany(Post);
-Post.belongsTo(User, {foreignKey: "uuid"})
+Post.belongsTo(User, {foreignKey: "uuid", as: "fk_uuid"});
 
 Post.sync();
 
