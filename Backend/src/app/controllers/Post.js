@@ -4,8 +4,7 @@ const Post = require('../models/Post');
 
 
 router.post('/', async (req, res) => {
-
-     
+ 
     
 });
 
