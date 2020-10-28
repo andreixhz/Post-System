@@ -17,11 +17,11 @@ router.post('/register', async (req, res) => {
         if(await User.findOne({ where: {email}}))
             return res.status(400).send({error: 'Email already exists'});
 
-        req.body.password = await bcrypt.hash(this.password, 10);
+        req.body.password = await bcrypt.hash(req.body.password, 10);
 
         const user = await User.create(req.body);
 
-        //user.password = undefined;
+        user.password = undefined;
 
         return res.send({ user , token: generateToken({id: user.id})});
     } catch (err){
