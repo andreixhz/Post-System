@@ -53,4 +53,39 @@ button {
     align-items: center;
 }
 
+/* Register and Login style */
 
+.enter{
+    height: 100vh;
+}
+
+.enter-form{
+    text-align: center;
+}
+
+.enter-form form{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.enter-form form div{
+    margin-bottom: 15px;
+    width: 300px;
+}
+
+.enter-form form div:last-of-type{
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.enter-form form div a{
+    text-decoration: none;
+}
+
+.enter-form form button{
+    width: 100px;
+
+}
