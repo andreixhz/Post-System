@@ -22,16 +22,26 @@ function Home() {
             }
         }).then(res => {
             setUser(res.data);
+        }).catch(() => {
+            localStorage.clear();
+            history.push('/login');
         });
         
     }, []);
 
     return(
-        <div className="center home">
-            <h1>H1, {user.username}</h1>
-            <UploadImage />
-            <Post/>
-        </div>
+        <>
+        {
+            user !== null ?
+            <></>
+            :             
+            <div className="center home">
+                <h1>H1, {user.username}</h1>
+                <UploadImage />
+                <Post/>
+            </div>
+        }
+        </>
     );
 }
 
