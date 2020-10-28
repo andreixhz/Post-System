@@ -16,18 +16,16 @@ function Post() {
                 "authorization": "bearer " + localStorage.getItem('token'),
             }
         }).then((res) => {  
-           setPosts(res.data.data);
+            setPosts(res.data.data);
         })
     }, [])
 
-
     return (
-        <div>{
-            posts.map((item, i) => {
+        <div>
+            {posts.map((item, i) => {
                 console.log(item)
-                PostCard({i,username: item.username});
-            })
-        }
+                PostCard({i,username: item.author});
+            })}
         </div>
     );
 }

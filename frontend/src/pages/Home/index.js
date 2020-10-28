@@ -9,12 +9,12 @@ function Home() {
 
     const history = useHistory();
     const [user, setUser] = useState({});
-    
-    useEffect(async () => {
+
+    useEffect(() => {
         if(!localStorage.getItem("token")){
             history.push('/login');
         }
-        await api({
+        api({
             url:"/auth/valid",
             method:"post",
             headers:{
@@ -30,18 +30,11 @@ function Home() {
     }, []);
 
     return(
-        <>
-        {
-            user !== null ?
-            <></>
-            :             
-            <div className="center home">
-                <h1>H1, {user.username}</h1>
-                <UploadImage />
-                <Post/>
-            </div>
-        }
-        </>
+        <div className="center home">
+            <h1>H1, {user.username}</h1>
+            <UploadImage />
+            <Post />
+        </div>
     );
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, TextField } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Api from '../../api';
 import { useState } from 'react';
 
@@ -8,6 +8,8 @@ function Login() {
 
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
+
+    const history = useHistory();
 
     const handleSubmit = event => {
 
@@ -19,6 +21,7 @@ function Login() {
         }})
         .then(res => {
             localStorage.setItem("token", res.data.token);
+            history.push('/');
         })
         .catch(() => alert("user not found"));
      

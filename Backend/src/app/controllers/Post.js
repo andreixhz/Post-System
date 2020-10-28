@@ -13,8 +13,10 @@ router.post('/', uploadMiddleware.single('image'), async (req, res) => {
     const { filename, size } = req.file;
 
     const user = await User.findOne({where:{uuid: req.userId}});
+    console.log(user.username);
 
     const post = await Post.create({uuid: req.userId, author: user.username, image: filename, description: req.body.description});
+
     return res.status(200).json({post});
 
 });

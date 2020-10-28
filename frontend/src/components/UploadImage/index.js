@@ -8,7 +8,7 @@ import send from '../../assets/images/send.svg';
 function UploadImage() {
 
     const [currentUploadImage, setCurrentUploadImage] = useState();
-    const [file, setFile] = useState();
+    const [file, setFile] = useState(null);
     const [description, setDecription] = useState();
     const [sendButton, setSendButton] = useState(false);
 
