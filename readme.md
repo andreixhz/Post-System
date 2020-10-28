@@ -8,9 +8,9 @@ simple application for sending images to the server using http request.
 * Backend ✔️
 * Frontend ⚙️
 
-## Backend 
+# Backend 
 
-# How to run
+## How to run
 
 ```
 use "cd Backend" -> "yarn" -> "node ."
