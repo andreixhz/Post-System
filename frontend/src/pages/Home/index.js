@@ -7,7 +7,7 @@ import './style.css';
 function Home() {
 
     const history = useHistory();
-    const [user, setUser] = useState();
+    const [user, setUser] = useState({});
     
     useEffect(async () => {
         if(!localStorage.getItem("token")){
@@ -26,7 +26,8 @@ function Home() {
     }, []);
 
     return(
-        <div className="center">
+        <div className="center home">
+            <h1>H1, {user.username}</h1>
             <UploadImage />
         </div>
     );
