@@ -1,13 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom'
+import Login from './pages/Login';
+
 
 function Routes() {
     return (
         <BrowserRouter className>
-            <Menu/>
             <div className="center">
                 <div className="container">
-                    
+                    <Route path="/" component={Login}/>
                 </div>
             </div>
         </BrowserRouter>
