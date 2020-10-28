@@ -3,13 +3,12 @@ const router = express.Router();
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const auth = require('../middlewares/auth');
 
 const generateToken = (params = {}) => jwt.sign(params, "asdhasudasudh123nasb", {expiresIn: 86400,});
 
 router.post('/register', async (req, res) => {
-
     const {email, username} = req.body;
-
     try{
         if(await User.findOne({ where: {username}}))
             return res.status(400).send({error: 'Username already exists'})
@@ -27,6 +26,13 @@ router.post('/register', async (req, res) => {
     } catch (err){
         return res.status(400).send({error: 'Registration failed'});
     }
+});
+
+
+router.post('/valid', auth, async (req, res) => {
+    const user = await User.findOne({where: {uuid: req.userId}});
+    user.password = null;
+    return res.status(200).send(user);
 });
 
 router.post('/authenticate', async (req,res)=>{
