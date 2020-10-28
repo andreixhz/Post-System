@@ -1,0 +1,44 @@
+:root {
+    font-size: 60%;
+    --color-background: #FFF;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body, #root{
+    height: 100vh;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+body{
+    background: var(--color-background);
+}
+
+#root{
+    width: 100vw;
+    height: 100vh;
+}
+
+body,
+input,
+textarea,
+button {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.container {
+    width: 90vw;
+    max-width: 1000px;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+}
+
