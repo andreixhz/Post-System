@@ -5,7 +5,7 @@ import './style.css';
 import upload from '../../assets/images/upload.svg';
 import send from '../../assets/images/send.svg';
 
-function UploadImage() {
+function UploadImage({addImage}) {
 
     const [currentUploadImage, setCurrentUploadImage] = useState();
     const [file, setFile] = useState(null);

@@ -16,24 +16,30 @@ function Post() {
                 "authorization": "bearer " + localStorage.getItem('token'),
             }
         }).then((res) => {  
-            setPosts(res.data.data);
+            if(res.data.code !== "no post founded"){
+                setPosts(res.data.data);
+            }
         })
     }, [])
 
     return (
         <div>
-            {posts.map((item, i) => {
-                console.log(item)
-                PostCard({i,username: item.author});
-            })}
+            {
+                posts.map((item, i) => {
+                    return PostCard({i,author: item.author, url: item.image});
+                })
+            }
         </div>
     );
 }
 
-function PostCard({i, username}){
-    <Paper key={i} className="post_image" elevation={1}>
-        <h3>{username}</h3>
-    </Paper>
+function PostCard({i, author, url}){
+    return(
+        <Paper key={i} className="post" elevation={1}>
+            <p>{author}</p>
+            <div style={{backgroundImage: `url(http://localhost:3333/image/${url})`}}></div>
+        </Paper>
+    )
 }
 
 export default Post;
