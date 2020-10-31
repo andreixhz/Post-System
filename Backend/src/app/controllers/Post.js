@@ -13,7 +13,6 @@ router.post('/', uploadMiddleware.single('image'), async (req, res) => {
     const { filename, size } = req.file;
 
     const user = await User.findOne({where:{uuid: req.userId}});
-    console.log(user.username);
 
     const post = await Post.create({uuid: req.userId, author: user.username, image: filename, description: req.body.description});
 
@@ -30,7 +29,10 @@ router.get('/', async(req, res) => {
 
     const posts = await Post.findAll({
         offset: (page - 1) * 10,
-        limit: 10
+        limit: 10,
+        order:[
+            ['ID', 'DESC']
+        ]
     });
 
     res.header('X-Total-Count', count);
