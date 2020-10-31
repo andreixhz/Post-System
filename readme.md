@@ -6,7 +6,7 @@ simple application for sending images to the server using http request.
 ## Status
 
 * Backend ✔️
-* Frontend ⚙️
+* Frontend ⚙️ 9.6 / 10
 
 # Backend 
 
