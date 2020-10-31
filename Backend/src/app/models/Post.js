@@ -10,6 +10,10 @@ Post.init({
         primaryKey: true,
         autoIncrement: true
     },
+    uuid:{
+        type: DataTypes.UUIDV4,
+        allowNull: false
+    },
     author:{
         type: DataTypes.STRING(255),
         allowNull: true
@@ -29,7 +33,7 @@ Post.init({
 })
 
 User.hasMany(Post);
-Post.belongsTo(User, {foreignKey: "userUuid", as: "fk_uuid"});
+Post.belongsTo(User, {foreignKey: "uuid", as: "fk_uuid"});
 
 Post.sync();
 
