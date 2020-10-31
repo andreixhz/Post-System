@@ -37,7 +37,7 @@ function PostCard({i, author, url, desc}){
     return(
         <Paper key={i} className="post" elevation={1}>
             <h4>{author}</h4>
-            <p>{desc}</p>
+            {desc === 'undefined' ? <></> : <p>{desc}</p>}
             <img src={`http://localhost:3333/image/${url}`}/>
             <div></div>
         </Paper>
