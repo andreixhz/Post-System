@@ -26,17 +26,18 @@ function Post() {
         <div>
             {
                 posts.map((item, i) => {
-                    return PostCard({i,author: item.author, url: item.image });
+                    return PostCard({i,author: item.author, url: item.image, desc: item.description });
                 })
             }
         </div>
     );
 }
 
-function PostCard({i, author, url}){
+function PostCard({i, author, url, desc}){
     return(
         <Paper key={i} className="post" elevation={1}>
-            <p>{author}</p>
+            <h4>{author}</h4>
+            <p>{desc}</p>
             <img src={`http://localhost:3333/image/${url}`}/>
             <div></div>
         </Paper>
