@@ -11,10 +11,8 @@
     font-size: 20px;
 }
 
-.post div{
-    width: 450px;
-    min-height: 200px;
-    max-height: 600px;
-    background-size: fill;
-    background-repeat: no-repeat;
+.post img{
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 25px;
 }

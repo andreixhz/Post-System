@@ -29,14 +29,10 @@ function Home() {
         
     }, []);
 
-    function HandleAddImage(){
-        alert("I am working");
-    }
-
     return(
         <div className="center home">
             <h1>H1, {user.username}</h1>
-            <UploadImage AddImage={HandleAddImage}/>
+            <UploadImage/>
             <Post/>
         </div>
     );
