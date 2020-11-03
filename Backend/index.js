@@ -11,6 +11,8 @@ app.use(cors());
 
 io.on('connection', (socket) => {
 
+    socket.on('post', async (data) => io.emit('post', data));
+
 });
 
 require('./src/app/controllers/index')(app);
