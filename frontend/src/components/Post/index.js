@@ -25,7 +25,7 @@ function Post({socket}) {
     useEffect(() => {
         socket.on("post", (data) => {
 
-            setPosts([...posts, data.res.data.post]);
+            setPosts([data.res.data.post, ...posts]);
 
         })
     });
@@ -33,9 +33,7 @@ function Post({socket}) {
     return (
         <div>
             {
-                posts.length === 10 ? posts.map((item, i) => {
-                    return PostCard({i,author: item.author, url: item.image, desc: item.description });
-                }) : posts.slice(0).reverse(0).map((item, i) => {
+                posts.map((item, i) => {
                     return PostCard({i,author: item.author, url: item.image, desc: item.description });
                 })
             }
