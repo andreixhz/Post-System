@@ -3,3 +3,18 @@
     align-items: center;
     margin-top: 20px;
 }
+
+.home-header{
+    display: flex;
+    justify-content: space-between;
+    width: 450px;
+    align-items: center;
+}
+
+.home-header button{
+    padding: 25px;
+    border-radius: 50px;
+}
+.home-header img{
+    width: 35px;
+}

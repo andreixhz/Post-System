@@ -4,8 +4,10 @@ import api from '../../api';
 import Post from '../../components/Post';
 import UploadImage from '../../components/UploadImage';
 import socketIOClient from "socket.io-client";
+import Logout from '../../assets/images/exit.svg';
 
 import './style.css';
+import { ButtonBase } from '@material-ui/core';
 
 const ENDPOINT = "http://localhost:3333";
 
@@ -13,8 +15,6 @@ function Home() {
 
     const history = useHistory();
     const [user, setUser] = useState({});
-
-    const [response, setResponse] = useState("");
     const [socket, setSocket] = useState();
 
     useEffect(() => {
@@ -30,16 +30,25 @@ function Home() {
         }).then(res => {
             setUser(res.data);
         }).catch(() => {
-            localStorage.clear();
-            history.push('/login');
+            Loggout();
         });
         setSocket(socketIOClient(ENDPOINT));
 
     }, []);
 
+    function Loggout(){
+        localStorage.clear();
+        history.push('/login');
+    }
+
     return(
         <div className="center home">
-            <h1>H1, {user.username}</h1>
+            <div class="home-header">
+                <h1>H1, {user.username}</h1>
+                <ButtonBase onClick={() => Loggout()}>
+                    <img src={Logout}/>
+                </ButtonBase>
+            </div>
             {
                 socket != null ? <> <UploadImage socket={socket}/> <Post socket={socket}/> </>: <></>
             }
