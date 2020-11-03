@@ -4,7 +4,7 @@ import api from '../../api';
 
 import './style.css';
 
-function Post() {
+function Post({socket}) {
 
     const [posts, setPosts] = useState([]);
 
@@ -22,10 +22,20 @@ function Post() {
         })
     }, [])
 
+    useEffect(() => {
+        socket.on("post", (data) => {
+
+            setPosts([...posts, data.res.data.post]);
+
+        })
+    });
+
     return (
         <div>
             {
-                posts.map((item, i) => {
+                posts.length === 10 ? posts.map((item, i) => {
+                    return PostCard({i,author: item.author, url: item.image, desc: item.description });
+                }) : posts.slice(0).reverse(0).map((item, i) => {
                     return PostCard({i,author: item.author, url: item.image, desc: item.description });
                 })
             }

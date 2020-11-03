@@ -5,7 +5,7 @@ import './style.css';
 import upload from '../../assets/images/upload.svg';
 import send from '../../assets/images/send.svg';
 
-function UploadImage({addImage}) {
+function UploadImage({socket}) {
 
     const [currentUploadImage, setCurrentUploadImage] = useState();
     const [file, setFile] = useState(null);
@@ -50,6 +50,7 @@ function UploadImage({addImage}) {
             setCurrentUploadImage(null);
             setFile(null);
             setSneakBar({open:true, msg: 'Image has been sended'});
+            socket.emit("post", {res});
         })
     
     }

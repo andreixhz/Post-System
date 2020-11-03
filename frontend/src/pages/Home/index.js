@@ -3,12 +3,19 @@ import { useHistory } from 'react-router-dom';
 import api from '../../api';
 import Post from '../../components/Post';
 import UploadImage from '../../components/UploadImage';
+import socketIOClient from "socket.io-client";
+
 import './style.css';
+
+const ENDPOINT = "http://localhost:3333";
 
 function Home() {
 
     const history = useHistory();
     const [user, setUser] = useState({});
+
+    const [response, setResponse] = useState("");
+    const [socket, setSocket] = useState();
 
     useEffect(() => {
         if(!localStorage.getItem("token")){
@@ -26,14 +33,17 @@ function Home() {
             localStorage.clear();
             history.push('/login');
         });
-        
+        setSocket(socketIOClient(ENDPOINT));
+
     }, []);
 
     return(
         <div className="center home">
             <h1>H1, {user.username}</h1>
-            <UploadImage/>
-            <Post/>
+            {
+                socket != null ? <> <UploadImage socket={socket}/> <Post socket={socket}/> </>: <></>
+            }
+            
         </div>
     );
 }
