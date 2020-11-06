@@ -3,8 +3,6 @@ upload images from front-end to back-end server.
 
 simple application for sending images to the server using http request with real-time update posts.
 
-live preview https://andreixhz.github.io/Post-System/
-
 ## Status
 
 * Backend ✔️
