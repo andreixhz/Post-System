@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = process.env.URL || 'http://localhost:3333/'
+const url = "https://post-system.vercel.app";
 
 const api = axios.create({
     baseURL: url,
