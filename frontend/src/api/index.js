@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = "https://post-system.vercel.app";
+const url = "https://post-system-api.herokuapp.com";
 
 const api = axios.create({
     baseURL: url,
