@@ -9,7 +9,7 @@ import Logout from '../../assets/images/exit.svg';
 import './style.css';
 import { ButtonBase } from '@material-ui/core';
 
-const ENDPOINT = "http://localhost:3333";
+const ENDPOINT = "https://post-system-api.herokuapp.com"
 
 function Home() {
 
